@@ -174,32 +174,69 @@ public class FriendsGui extends Screen {
 
     private void renderFriendsList(FriendsManager friendsManager) {
         if (friendsManager.getFriendsCount() == 0) {
-            ImGui.textColored(0.7f, 0.7f, 0.7f, 1.0f, "No friends added yet.");
-            ImGui.textColored(0.5f, 0.5f, 0.5f, 1.0f, "Add friends using the input field above.");
+            // Enhanced empty state
+            ImGui.pushStyleColor(ImGuiCol.ChildBg, 0.12f, 0.12f, 0.15f, 0.8f);
+            ImGui.beginChild("EmptyState", 0, 250, true);
+            
+            ImGui.setCursorPosY(ImGui.getCursorPosY() + 80);
+            ImGui.setCursorPosX((ImGui.getWindowWidth() - ImGui.calcTextSize("No friends added yet").x) / 2);
+            ImGui.textColored(0.6f, 0.6f, 0.7f, 1.0f, "No friends added yet");
+            
+            ImGui.setCursorPosX((ImGui.getWindowWidth() - ImGui.calcTextSize("Add friends using the input field above").x) / 2);
+            ImGui.textColored(0.5f, 0.5f, 0.6f, 1.0f, "Add friends using the input field above");
+            
+            ImGui.endChild();
+            ImGui.popStyleColor();
             return;
         }
 
         String searchTerm = searchInput.get().toLowerCase();
         List<String> friends = friendsManager.getFriends();
         
-        // Begin scrollable region for friends list
-        ImGui.beginChild("FriendsList", 0, 200, true);
+        // Enhanced scrollable region for friends list
+        ImGui.pushStyleColor(ImGuiCol.ChildBg, 0.10f, 0.10f, 0.12f, 1.0f);
+        ImGui.beginChild("FriendsList", 0, 250, true);
         
         int index = 1;
         for (String friend : friends) {
             if (searchTerm.isEmpty() || friend.toLowerCase().contains(searchTerm)) {
                 ImGui.pushID(friend);
                 
-                // Friend name with index
-                ImGui.textColored(0.2f, 1.0f, 0.2f, 1.0f, index + ". " + friend);
+                // Alternating row colors for better readability
+                if (index % 2 == 0) {
+                    ImGui.pushStyleColor(ImGuiCol.ChildBg, 0.12f, 0.12f, 0.15f, 0.5f);
+                    ImGui.beginChild("FriendRow", 0, 30, false);
+                } else {
+                    ImGui.beginChild("FriendRow", 0, 30, false);
+                }
                 
+                // Friend name with better styling
+                ImGui.setCursorPosY(ImGui.getCursorPosY() + 4);
+                ImGui.pushStyleColor(ImGuiCol.Text, 0.3f, 0.9f, 0.5f, 1.0f);
+                ImGui.text(index + ". " + friend);
+                ImGui.popStyleColor();
+                
+                // Centered remove button
                 ImGui.sameLine();
-                ImGui.setCursorPosX(ImGui.getWindowWidth() - 80);
+                ImGui.setCursorPosY(ImGui.getCursorPosY() - 2);
+                ImGui.setCursorPosX(ImGui.getWindowWidth() - 85);
                 
-                // Remove button
-                if (ImGui.button("Remove", 70, 20)) {
-                    friendToRemove = friend;
-                    showConfirmRemove = true;
+                ImGui.pushStyleColor(ImGuiCol.Button, 0.8f, 0.3f, 0.3f, 1.0f);
+                ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.9f, 0.4f, 0.4f, 1.0f);
+                ImGui.pushStyleColor(ImGuiCol.ButtonActive, 1.0f, 0.5f, 0.5f, 1.0f);
+                if (ImGui.button("Remove", 75, 24)) {
+                    // Remove immediately without confirmation
+                    friendsManager.removeFriend(friend);
+                    ChatUtils.addMessageToChat(Formatting.RED + "[S] " + Formatting.WHITE + "Removed " + 
+                        Formatting.RED + friend + Formatting.WHITE + " from your friends list!");
+                    ChatUtils.addMessageToChat(Formatting.GRAY + "[S] " + Formatting.WHITE + "Friends count: " + 
+                        Formatting.AQUA + friendsManager.getFriendsCount());
+                }
+                ImGui.popStyleColor(3);
+                
+                ImGui.endChild();
+                if (index % 2 == 0) {
+                    ImGui.popStyleColor();
                 }
                 
                 ImGui.popID();
@@ -208,6 +245,7 @@ public class FriendsGui extends Screen {
         }
         
         ImGui.endChild();
+        ImGui.popStyleColor();
     }
 
     private void renderConfirmationDialogs(FriendsManager friendsManager) {
