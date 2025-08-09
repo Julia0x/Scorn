@@ -111,6 +111,13 @@ public class AltManagerGui extends Screen {
             ImGui.pushStyleColor(ImGuiCol.Text, 0.6f, 0.9f, 0.6f, 1.0f);
             ImGui.text("Add New Account");
             ImGui.popStyleColor();
+            
+            ImGui.sameLine();
+            ImGui.setCursorPosX(200);
+            ImGui.pushStyleColor(ImGuiCol.Text, 0.9f, 0.7f, 0.3f, 1.0f);
+            ImGui.text("(Cracked accounts only)");
+            ImGui.popStyleColor();
+            
             ImGui.spacing();
             
             ImGui.text("Email/Username:");
