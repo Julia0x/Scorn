@@ -330,9 +330,9 @@ public class AltManagerGui extends Screen {
     }
 
     private void addAccount(String email, String password) {
-        altManager.addAlt(email, password);
-        String accountType = password.isEmpty() ? "cracked" : "premium";
-        ChatUtils.addMessageToChat(Formatting.GREEN + "[S] " + Formatting.WHITE + "Added " + accountType + " account " + 
+        // Only add cracked accounts (ignore password since it's locked)
+        altManager.addAlt(email, ""); // Always empty password for cracked accounts
+        ChatUtils.addMessageToChat(Formatting.GREEN + "[S] " + Formatting.WHITE + "Added cracked account " + 
             Formatting.GREEN + email);
         ChatUtils.addMessageToChat(Formatting.GRAY + "[S] " + Formatting.WHITE + "Accounts count: " + 
             Formatting.AQUA + altManager.getAltCount());
