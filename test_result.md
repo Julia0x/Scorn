@@ -8,8 +8,20 @@ This is a Minecraft Fabric client mod called "Scorn" with advanced combat system
 2. ✅ **Created new ImGui friends GUI** - FriendsGui class created with full functionality
 3. ✅ **Added apostrophe (') key binding** - Opens the friends management GUI
 4. ✅ **Changed command prefix from [N] to [S]** - Updated in ChatUtils class
-5. ✅ **Created Alt Manager in pause menu** - AltManagerGui added to GameMenuScreen
+5. ✅ **Created Alt Manager with locked password** - AltManagerGui with cracked-only accounts
 6. ✅ **Removed search emoji** - No emojis used as icons in any GUI
+7. ✅ **Custom animated title screen** - Complete custom title screen with animated background
+
+## Latest Updates
+### 🚀 **Custom Animated Title Screen Implementation**
+- **Complete replacement** of vanilla Minecraft title screen
+- **Animated background** with moving grid pattern and floating particles
+- **Modern cyberpunk theme** with purple/blue color scheme
+- **Smooth fade-in animations** for logo and UI elements
+- **Glowing button effects** with hover animations
+- **Particle system** with 100 floating particles for atmosphere
+- **Integrated Alt Manager** access from main menu
+- **Professional branding** with "SCORN CLIENT" logo
 
 ## Changes Made
 
