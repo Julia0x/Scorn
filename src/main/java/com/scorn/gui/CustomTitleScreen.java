@@ -134,13 +134,11 @@ public class CustomTitleScreen extends Screen {
         
         // Center the logo text
         String logoText = "SCORN CLIENT";
-        float textWidth = ImGui.calcTextSize(logoText).x * 1.8f;
+        float textWidth = ImGui.calcTextSize(logoText).x;
         ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth) / 2);
         
-        // Scale up the logo
-        ImGui.setWindowFontScale(1.8f * logoScale);
+        // Display logo without font scaling (ImGui limitation)
         ImGui.text(logoText);
-        ImGui.setWindowFontScale(1.0f);
         ImGui.popStyleColor();
         
         // Subtitle with animation
