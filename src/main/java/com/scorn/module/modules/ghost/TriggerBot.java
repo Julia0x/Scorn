@@ -206,7 +206,7 @@ public class TriggerBot extends Module {
         
         // Add random delay
         if (randomDelay.getValue()) {
-            long extraDelay = RandomUtil.smartRandom((int)hitDelay.getValueMin(), (int)hitDelay.getValueMax());
+            long extraDelay = (long)RandomUtil.smartRandom((int)hitDelay.getValueMin(), (int)hitDelay.getValueMax());
             baseDelay += extraDelay;
         }
         
