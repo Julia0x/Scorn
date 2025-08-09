@@ -119,10 +119,15 @@ public class AltManagerGui extends Screen {
             
             ImGui.sameLine();
             ImGui.setCursorPosX(350);
-            ImGui.text("Password:");
+            ImGui.textColored(0.6f, 0.6f, 0.7f, 1.0f, "Password:");
             ImGui.sameLine();
             ImGui.setNextItemWidth(200);
-            ImGui.inputTextWithHint("##Password", "Leave empty for cracked", passwordInput, ImGuiInputTextFlags.Password);
+            
+            // Disable password input since only cracked accounts are supported
+            ImGui.pushStyleColor(ImGuiCol.FrameBg, 0.10f, 0.10f, 0.12f, 0.5f);
+            ImGui.pushStyleColor(ImGuiCol.Text, 0.5f, 0.5f, 0.5f, 1.0f);
+            ImGui.inputTextWithHint("##Password", "Locked (Cracked only)", passwordInput, ImGuiInputTextFlags.Password | ImGuiInputTextFlags.ReadOnly);
+            ImGui.popStyleColor(2);
             
             ImGui.sameLine();
             ImGui.pushStyleColor(ImGuiCol.Button, 0.2f, 0.7f, 0.2f, 1.0f);
