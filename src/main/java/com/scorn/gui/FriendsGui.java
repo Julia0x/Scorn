@@ -21,8 +21,6 @@ public class FriendsGui extends Screen {
     private final ImString addFriendInput = new ImString(256);
     private final ImString searchInput = new ImString(256);
     private boolean showConfirmClear = false;
-    private String friendToRemove = null;
-    private boolean showConfirmRemove = false;
 
     public FriendsGui() {
         super(Text.literal("Friends Manager"));
