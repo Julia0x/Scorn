@@ -348,15 +348,6 @@ public class ClickGui extends Screen {
         return false;
     }
 
-    public void drawToggle(Module module) {
-        ImGui.sameLine(-16);
-
-        ImGui.setCursorPosX(ImGui.getCursorPosX() + 20);
-        if (ImGui.checkbox("##T" + module.getName(), module.isEnabled())) {
-            module.toggle();
-        }
-    }
-
     private int charToKey(char character) {
         return switch (character) {
             case 'a' -> GLFW.GLFW_KEY_A;
