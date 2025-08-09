@@ -8,6 +8,8 @@ This is a Minecraft Fabric client mod called "Scorn" with advanced combat system
 2. ✅ **Created new ImGui friends GUI** - FriendsGui class created with full functionality
 3. ✅ **Added apostrophe (') key binding** - Opens the friends management GUI
 4. ✅ **Changed command prefix from [N] to [S]** - Updated in ChatUtils class
+5. ✅ **Created Alt Manager in pause menu** - AltManagerGui added to GameMenuScreen
+6. ✅ **Removed search emoji** - No emojis used as icons in any GUI
 
 ## Changes Made
 
