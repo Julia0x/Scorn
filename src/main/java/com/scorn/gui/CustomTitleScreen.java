@@ -129,33 +129,11 @@ public class CustomTitleScreen extends Screen {
         ImGui.spacing();
         ImGui.spacing();
         
-        // Animated logo with glow effect
+        // Animated title with glow effect
         float glowIntensity = (float) (0.8f + 0.3f * Math.sin(animationTime * 2.0f));
         
-        // ASCII Art Logo
-        ImGui.pushStyleColor(ImGuiCol.Text, 0.8f * glowIntensity, 0.6f * glowIntensity, 1.0f * glowIntensity, logoAlpha);
-        
-        String[] logoLines = {
-            "   ███████╗ ██████╗ ██████╗ ██████╗ ███╗   ██╗",
-            "   ██╔════╝██╔═══██╗██╔══██╗██╔══██╗████╗  ██║",
-            "   ███████╗██║   ██║██████╔╝██████╔╝██╔██╗ ██║",
-            "   ╚════██║██║   ██║██╔══██╗██╔══██╗██║╚██╗██║",
-            "   ███████║╚██████╔╝██║  ██║██║  ██║██║ ╚████║",
-            "   ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝"
-        };
-        
-        for (String line : logoLines) {
-            float lineWidth = ImGui.calcTextSize(line).x;
-            ImGui.setCursorPosX((ImGui.getWindowWidth() - lineWidth) / 2);
-            ImGui.text(line);
-        }
-        
-        ImGui.popStyleColor();
-        
-        ImGui.spacing();
-        
-        // Main title with enhanced glow
-        String mainTitle = "C L I E N T";
+        // Main title
+        String mainTitle = "SCORN CLIENT";
         float mainTitleWidth = ImGui.calcTextSize(mainTitle).x;
         ImGui.setCursorPosX((ImGui.getWindowWidth() - mainTitleWidth) / 2);
         ImGui.pushStyleColor(ImGuiCol.Text, 1.0f * glowIntensity, 0.8f * glowIntensity, 1.0f * glowIntensity, logoAlpha);
@@ -164,7 +142,7 @@ public class CustomTitleScreen extends Screen {
         
         // Subtitle with animation
         ImGui.spacing();
-        String subtitle = "Advanced Combat Client v1.0";
+        String subtitle = "Advanced Combat Client";
         float subtitleWidth = ImGui.calcTextSize(subtitle).x;
         ImGui.setCursorPosX((ImGui.getWindowWidth() - subtitleWidth) / 2);
         ImGui.textColored(0.7f, 0.7f, 0.9f, logoAlpha * 0.8f, subtitle);
