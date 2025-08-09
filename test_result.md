@@ -67,10 +67,15 @@ This is a Minecraft Fabric client mod called "Scorn" with advanced combat system
 - **Clean Integration**: Works alongside existing module keybinds
 
 ## File Changes:
-- `/src/main/java/com/scorn/utils/mc/ChatUtils.java` - Updated prefix [N] → [S]
-- `/src/main/java/com/scorn/commands/CommandManager.java` - Removed FriendsCommand
-- `/src/main/java/com/scorn/gui/FriendsGui.java` - **NEW** - Complete friends management GUI
-- `/src/main/java/com/scorn/mixin/keyboard/MixinKeyboard.java` - Added apostrophe key handling
+- `ChatUtils.java` - Updated prefix [N] → [S]
+- `CommandManager.java` - Removed FriendsCommand
+- `FriendsGui.java` - **NEW** Complete friends management system (improved design, no emojis)
+- `MixinKeyboard.java` - Added apostrophe key handling
+- `AltManager.java` - **NEW** Alt accounts management utility
+- `AltManagerGui.java` - **NEW** Alt Manager GUI interface
+- `MixinGameMenuScreen.java` - **NEW** Pause menu integration for Alt Manager
+- `client.mixins.json` - Added screen mixin registration
+- `test_result.md` - **UPDATED** Documentation of all changes
 
 ## Testing Protocol
 The implementation has been completed and follows these testing guidelines:
