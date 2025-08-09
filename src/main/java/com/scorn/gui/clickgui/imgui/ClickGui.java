@@ -235,11 +235,11 @@ public class ClickGui extends Screen {
             
             // Add tooltip with range info when hovering
             if (ImGui.isItemHovered()) {
-                ImGui.setTooltip("Range: %.2f - %.2f | Current: %.2f - %.2f", 
+                ImGui.setTooltip(String.format("Range: %.2f - %.2f | Current: %.2f - %.2f", 
                     rangeProperty.getMin(), 
                     rangeProperty.getMax(),
                     rangeProperty.getValueMin(), 
-                    rangeProperty.getValueMax());
+                    rangeProperty.getValueMax()));
             }
             
             ImGui.sameLine();
