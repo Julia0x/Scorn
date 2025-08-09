@@ -131,41 +131,31 @@ public class CustomTitleScreen extends Screen {
         
         // Animated logo with glow effect
         float glowIntensity = (float) (0.8f + 0.3f * Math.sin(animationTime * 2.0f));
+        
+        // ASCII Art Logo
         ImGui.pushStyleColor(ImGuiCol.Text, 0.8f * glowIntensity, 0.6f * glowIntensity, 1.0f * glowIntensity, logoAlpha);
         
-        // Center the logo text with multiple lines for impact
-        String logoText1 = "   ████  ████  ████  ████  █   █";
-        String logoText2 = "   █     █     █  █  █  █  ██  █";
-        String logoText3 = "   ████  █     █  █  ████  █ █ █";
-        String logoText4 = "      █  █     █  █  █  █  █  ██";
-        String logoText5 = "   ████  ████  ████  █  █  █   █";
+        String[] logoLines = {
+            "   ███████╗ ██████╗ ██████╗ ██████╗ ███╗   ██╗",
+            "   ██╔════╝██╔═══██╗██╔══██╗██╔══██╗████╗  ██║",
+            "   ███████╗██║   ██║██████╔╝██████╔╝██╔██╗ ██║",
+            "   ╚════██║██║   ██║██╔══██╗██╔══██╗██║╚██╗██║",
+            "   ███████║╚██████╔╝██║  ██║██║  ██║██║ ╚████║",
+            "   ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝"
+        };
         
-        float textWidth1 = ImGui.calcTextSize(logoText1).x;
-        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth1) / 2);
-        ImGui.text(logoText1);
-        
-        float textWidth2 = ImGui.calcTextSize(logoText2).x;
-        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth2) / 2);
-        ImGui.text(logoText2);
-        
-        float textWidth3 = ImGui.calcTextSize(logoText3).x;
-        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth3) / 2);
-        ImGui.text(logoText3);
-        
-        float textWidth4 = ImGui.calcTextSize(logoText4).x;
-        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth4) / 2);
-        ImGui.text(logoText4);
-        
-        float textWidth5 = ImGui.calcTextSize(logoText5).x;
-        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth5) / 2);
-        ImGui.text(logoText5);
+        for (String line : logoLines) {
+            float lineWidth = ImGui.calcTextSize(line).x;
+            ImGui.setCursorPosX((ImGui.getWindowWidth() - lineWidth) / 2);
+            ImGui.text(line);
+        }
         
         ImGui.popStyleColor();
         
         ImGui.spacing();
         
-        // Main title
-        String mainTitle = "SCORN CLIENT";
+        // Main title with enhanced glow
+        String mainTitle = "C L I E N T";
         float mainTitleWidth = ImGui.calcTextSize(mainTitle).x;
         ImGui.setCursorPosX((ImGui.getWindowWidth() - mainTitleWidth) / 2);
         ImGui.pushStyleColor(ImGuiCol.Text, 1.0f * glowIntensity, 0.8f * glowIntensity, 1.0f * glowIntensity, logoAlpha);
@@ -174,7 +164,7 @@ public class CustomTitleScreen extends Screen {
         
         // Subtitle with animation
         ImGui.spacing();
-        String subtitle = "Advanced Combat Client";
+        String subtitle = "Advanced Combat Client v1.0";
         float subtitleWidth = ImGui.calcTextSize(subtitle).x;
         ImGui.setCursorPosX((ImGui.getWindowWidth() - subtitleWidth) / 2);
         ImGui.textColored(0.7f, 0.7f, 0.9f, logoAlpha * 0.8f, subtitle);
