@@ -74,67 +74,97 @@ public class FriendsGui extends Screen {
     }
 
     private void renderFriendsWindow() {
-        int windowFlags = ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.AlwaysAutoResize;
+        int windowFlags = ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoResize;
         
         // Center the window
         ImGui.setNextWindowPos(
-            ImGui.getMainViewport().getCenterX() - 250,
-            ImGui.getMainViewport().getCenterY() - 200,
+            ImGui.getMainViewport().getCenterX() - 300,
+            ImGui.getMainViewport().getCenterY() - 250,
             imgui.flag.ImGuiCond.Appearing
         );
-        ImGui.setNextWindowSize(500, 400, imgui.flag.ImGuiCond.Appearing);
+        ImGui.setNextWindowSize(600, 500, imgui.flag.ImGuiCond.Appearing);
 
-        if (ImGui.begin("Friends Manager", windowFlags)) {
+        if (ImGui.begin("✦ Friends Manager ✦", windowFlags)) {
             FriendsManager friendsManager = Friends.getFriendsManager();
             
-            // Header with friend count
-            ImGui.textColored(0.4f, 0.8f, 1.0f, 1.0f, "Friends Manager");
-            ImGui.sameLine();
-            ImGui.textColored(0.7f, 0.7f, 0.7f, 1.0f, "(" + friendsManager.getFriendsCount() + " friends)");
+            // Elegant header with gradient-like effect
+            ImGui.pushStyleColor(ImGuiCol.Text, 0.4f, 0.8f, 1.0f, 1.0f);
+            ImGui.setWindowFontScale(1.3f);
+            ImGui.textColored(0.4f, 0.8f, 1.0f, 1.0f, "Manage Your Friends");
+            ImGui.setWindowFontScale(1.0f);
+            ImGui.popStyleColor();
             
+            ImGui.sameLine();
+            ImGui.setCursorPosX(ImGui.getWindowWidth() - 120);
+            ImGui.textColored(0.7f, 0.9f, 0.7f, 1.0f, "(" + friendsManager.getFriendsCount() + " friends)");
+            
+            ImGui.spacing();
             ImGui.separator();
             ImGui.spacing();
 
-            // Add friend section
-            ImGui.textColored(0.2f, 1.0f, 0.2f, 1.0f, "Add Friend:");
-            ImGui.setNextItemWidth(300);
+            // Add friend section with better styling
+            ImGui.pushStyleColor(ImGuiCol.Text, 0.3f, 0.9f, 0.3f, 1.0f);
+            ImGui.text("➤ Add New Friend");
+            ImGui.popStyleColor();
+            ImGui.spacing();
+            
+            ImGui.setNextItemWidth(400);
             ImGui.inputTextWithHint("##AddFriend", "Enter player name...", addFriendInput, ImGuiInputTextFlags.None);
             
             ImGui.sameLine();
-            if (ImGui.button("Add Friend") && !addFriendInput.get().trim().isEmpty()) {
+            ImGui.pushStyleColor(ImGuiCol.Button, 0.2f, 0.7f, 0.2f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.3f, 0.8f, 0.3f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.4f, 0.9f, 0.4f, 1.0f);
+            if (ImGui.button("Add Friend", 120, 26) && !addFriendInput.get().trim().isEmpty()) {
                 addFriend(addFriendInput.get().trim());
                 addFriendInput.set("");
             }
+            ImGui.popStyleColor(3);
 
             ImGui.spacing();
-            ImGui.separator();
             ImGui.spacing();
 
-            // Search and friends list section
-            ImGui.textColored(0.4f, 0.8f, 1.0f, 1.0f, "Friends List:");
-            
-            // Search box
-            ImGui.setNextItemWidth(300);
-            ImGui.inputTextWithHint("##Search", "Search friends...", searchInput, ImGuiInputTextFlags.None);
+            // Friends list section with improved styling
+            ImGui.pushStyleColor(ImGuiCol.Text, 0.4f, 0.8f, 1.0f, 1.0f);
+            ImGui.text("➤ Friends List");
+            ImGui.popStyleColor();
             
             ImGui.sameLine();
-            if (ImGui.button("Clear All") && friendsManager.getFriendsCount() > 0) {
-                showConfirmClear = true;
+            ImGui.setCursorPosX(ImGui.getWindowWidth() - 140);
+            if (friendsManager.getFriendsCount() > 0) {
+                ImGui.pushStyleColor(ImGuiCol.Button, 0.8f, 0.2f, 0.2f, 1.0f);
+                ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.9f, 0.3f, 0.3f, 1.0f);
+                ImGui.pushStyleColor(ImGuiCol.ButtonActive, 1.0f, 0.4f, 0.4f, 1.0f);
+                if (ImGui.button("Clear All", 120, 26)) {
+                    showConfirmClear = true;
+                }
+                ImGui.popStyleColor(3);
             }
+            
+            ImGui.spacing();
+            
+            // Search box with better styling
+            ImGui.setNextItemWidth(400);
+            ImGui.inputTextWithHint("##Search", "🔍 Search friends...", searchInput, ImGuiInputTextFlags.None);
 
             ImGui.spacing();
 
-            // Friends list
+            // Enhanced friends list
             renderFriendsList(friendsManager);
 
             ImGui.spacing();
             ImGui.separator();
             ImGui.spacing();
 
-            // Footer buttons
-            if (ImGui.button("Close", 100, 30)) {
+            // Footer buttons with better styling
+            ImGui.setCursorPosX((ImGui.getWindowWidth() - 120) / 2);
+            ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.6f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.6f, 0.6f, 0.7f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.7f, 0.7f, 0.8f, 1.0f);
+            if (ImGui.button("Close", 120, 32)) {
                 close();
             }
+            ImGui.popStyleColor(3);
 
             // Confirmation dialogs
             renderConfirmationDialogs(friendsManager);
