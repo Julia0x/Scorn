@@ -55,10 +55,22 @@ This is a Minecraft Fabric client mod called "Scorn" with advanced combat system
 - Visual indicators showing all accounts are cracked
 - Integrated into main menu as "Alt Manager" button
 
-### 6. Enhanced Screen Integration (MixinTitleScreen.java)
-- Added Alt Manager button to main menu
-- Proper screen navigation and integration
-- Registered in client mixins configuration
+### 7. **Custom Animated Title Screen** (CustomTitleScreen.java, AnimationUtils.java)
+**Revolutionary Features:**
+- **Complete vanilla replacement**: Fully custom title screen using ImGui
+- **Animated cyberpunk background**: Moving grid pattern with floating particles
+- **Professional logo animation**: Fade-in effects with glowing text
+- **Interactive button system**: Hover effects with color animations
+- **Particle system**: 100 floating particles creating atmospheric effects
+- **Modern dark theme**: Purple/blue cyberpunk aesthetic
+- **Smooth transitions**: All UI elements use professional animation curves
+- **Integrated navigation**: Direct access to Alt Manager and all game features
+- **Performance optimized**: Efficient rendering with smooth 60fps animations
+
+### 8. Enhanced Screen Integration (MixinTitleScreen.java)
+- **Complete screen replacement**: Intercepts vanilla title screen initialization
+- **Seamless integration**: Maintains all original functionality while providing custom experience
+- **Custom branding**: "SCORN CLIENT" with professional styling
 
 ## Technical Implementation
 
