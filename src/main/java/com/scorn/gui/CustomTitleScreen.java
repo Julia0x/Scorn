@@ -127,18 +127,49 @@ public class CustomTitleScreen extends Screen {
     private void renderLogo() {
         ImGui.spacing();
         ImGui.spacing();
+        ImGui.spacing();
         
         // Animated logo with glow effect
         float glowIntensity = (float) (0.8f + 0.3f * Math.sin(animationTime * 2.0f));
         ImGui.pushStyleColor(ImGuiCol.Text, 0.8f * glowIntensity, 0.6f * glowIntensity, 1.0f * glowIntensity, logoAlpha);
         
-        // Center the logo text
-        String logoText = "SCORN CLIENT";
-        float textWidth = ImGui.calcTextSize(logoText).x;
-        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth) / 2);
+        // Center the logo text with multiple lines for impact
+        String logoText1 = "   ████  ████  ████  ████  █   █";
+        String logoText2 = "   █     █     █  █  █  █  ██  █";
+        String logoText3 = "   ████  █     █  █  ████  █ █ █";
+        String logoText4 = "      █  █     █  █  █  █  █  ██";
+        String logoText5 = "   ████  ████  ████  █  █  █   █";
         
-        // Display logo without font scaling (ImGui limitation)
-        ImGui.text(logoText);
+        float textWidth1 = ImGui.calcTextSize(logoText1).x;
+        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth1) / 2);
+        ImGui.text(logoText1);
+        
+        float textWidth2 = ImGui.calcTextSize(logoText2).x;
+        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth2) / 2);
+        ImGui.text(logoText2);
+        
+        float textWidth3 = ImGui.calcTextSize(logoText3).x;
+        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth3) / 2);
+        ImGui.text(logoText3);
+        
+        float textWidth4 = ImGui.calcTextSize(logoText4).x;
+        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth4) / 2);
+        ImGui.text(logoText4);
+        
+        float textWidth5 = ImGui.calcTextSize(logoText5).x;
+        ImGui.setCursorPosX((ImGui.getWindowWidth() - textWidth5) / 2);
+        ImGui.text(logoText5);
+        
+        ImGui.popStyleColor();
+        
+        ImGui.spacing();
+        
+        // Main title
+        String mainTitle = "SCORN CLIENT";
+        float mainTitleWidth = ImGui.calcTextSize(mainTitle).x;
+        ImGui.setCursorPosX((ImGui.getWindowWidth() - mainTitleWidth) / 2);
+        ImGui.pushStyleColor(ImGuiCol.Text, 1.0f * glowIntensity, 0.8f * glowIntensity, 1.0f * glowIntensity, logoAlpha);
+        ImGui.text(mainTitle);
         ImGui.popStyleColor();
         
         // Subtitle with animation
