@@ -327,6 +327,17 @@ public class CustomTitleScreen extends Screen {
         }
     }
 
+    private void renderFallbackMenu(DrawContext context, int mouseX, int mouseY) {
+        // Simple fallback text rendering if ImGui fails
+        String title = "SCORN CLIENT (Fallback Mode)";
+        int titleWidth = this.textRenderer.getWidth(title);
+        context.drawText(this.textRenderer, title, (this.width - titleWidth) / 2, 50, 0xFFFFFF, true);
+        
+        String subtitle = "ImGui failed to load - using fallback rendering";
+        int subtitleWidth = this.textRenderer.getWidth(subtitle);
+        context.drawText(this.textRenderer, subtitle, (this.width - subtitleWidth) / 2, 80, 0xCCCCCC, true);
+    }
+
     @Override
     public boolean shouldPause() {
         return false;
