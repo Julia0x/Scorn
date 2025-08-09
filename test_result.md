@@ -32,16 +32,16 @@ This is a Minecraft Fabric client mod called "Scorn" with advanced combat system
 - Scrollable friends list
 - Proper error handling and user feedback
 
-### 5. Created Alt Manager (AltManager.java, AltManagerGui.java, MixinGameMenuScreen.java)
+### 5. Created Alt Manager (AltManager.java, AltManagerGui.java, MixinTitleScreen.java)
 **New Features:**
 - Modern ImGui-based interface with purple/violet theme
-- Add/remove alt accounts (both cracked and premium)
+- Add alt accounts (cracked only - password input is locked)
 - Account login functionality with session management
 - Search/filter accounts list
 - Persistent storage (saves to `scorn_alts.txt`)
 - Clear all accounts with confirmation
-- Account type indicators (Cracked/Premium)
-- Integrated into pause menu as "Alt Manager" button
+- Account type indicators (shows "Cracked" for all accounts)
+- Integrated into main menu (TitleScreen) as "Alt Manager" button
 
 ### 6. Enhanced Screen Integration (MixinGameMenuScreen.java)
 - Added Alt Manager button to pause menu
