@@ -72,8 +72,8 @@ This is a Minecraft Fabric client mod called "Scorn" with advanced combat system
 - `FriendsGui.java` - **NEW** Complete friends management system (improved design, no emojis)
 - `MixinKeyboard.java` - Added apostrophe key handling
 - `AltManager.java` - **NEW** Alt accounts management utility
-- `AltManagerGui.java` - **NEW** Alt Manager GUI interface
-- `MixinGameMenuScreen.java` - **NEW** Pause menu integration for Alt Manager
+- `AltManagerGui.java` - **NEW** Alt Manager GUI interface with locked password input (cracked only)
+- `MixinTitleScreen.java` - **NEW** Main menu integration for Alt Manager
 - `client.mixins.json` - Added screen mixin registration
 - `test_result.md` - **UPDATED** Documentation of all changes
 
