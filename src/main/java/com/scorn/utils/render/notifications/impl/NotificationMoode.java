@@ -1,0 +1,8 @@
+package com.scorn.utils.render.notifications.impl;
+
+public enum NotificationMoode {
+    MODULE_ENABLED,
+    MODULE_DISABLED,
+    INFORMATION,
+    WARNING
+}
