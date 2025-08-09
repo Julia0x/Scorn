@@ -69,7 +69,6 @@ public final class ModuleManager {
     public void addModules() {
         // CLIENT
         add(new ClickGUI());
-        add(new Friends());
         add(new Interface());
         add(new Notifications());
         add(new PostProcessing());
