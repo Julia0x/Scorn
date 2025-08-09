@@ -112,6 +112,7 @@ public final class ModuleManager {
         add(new FlagDetector());
         add(new NoRotate());
         add(new StaffDetector());
+        add(new TargetingTest());
         add(new Timer());
 
         // PLAYER
