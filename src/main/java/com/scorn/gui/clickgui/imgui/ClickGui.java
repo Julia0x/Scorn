@@ -214,10 +214,10 @@ public class ClickGui extends Screen {
             
             // Add tooltip with min/max values when hovering
             if (ImGui.isItemHovered()) {
-                ImGui.setTooltip("Min: %.2f | Max: %.2f | Current: %.2f", 
+                ImGui.setTooltip(String.format("Min: %.2f | Max: %.2f | Current: %.2f", 
                     numberProperty.getMin(), 
                     numberProperty.getMax(), 
-                    numberProperty.getValue());
+                    numberProperty.getValue()));
             }
             
             ImGui.sameLine();
