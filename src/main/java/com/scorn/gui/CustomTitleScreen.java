@@ -44,24 +44,36 @@ public class CustomTitleScreen extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        // Update animations
-        animationTime += delta * 0.05f;
-        updateAnimations(delta);
-        updateParticles(delta);
+        try {
+            // Update animations
+            animationTime += delta * 0.05f;
+            updateAnimations(delta);
+            updateParticles(delta);
 
-        // Render animated background
-        renderAnimatedBackground(context);
-        
-        // Render particles
-        renderParticles(context);
+            // Render animated background
+            renderAnimatedBackground(context);
+            
+            // Render particles
+            renderParticles(context);
 
-        // Render custom ImGui title screen
-        ImGuiImpl.render(io -> {
-            setupCustomTheme();
-            renderMainMenu(mouseX, mouseY);
-            ImGui.popStyleColor(20);
-            ImGui.popStyleVar(12);
-        });
+            // Render custom ImGui title screen with error handling
+            try {
+                ImGuiImpl.render(io -> {
+                    setupCustomTheme();
+                    renderMainMenu(mouseX, mouseY);
+                    ImGui.popStyleColor(20);
+                    ImGui.popStyleVar(12);
+                });
+            } catch (Exception e) {
+                // Fallback to vanilla-like rendering if ImGui fails
+                renderFallbackMenu(context, mouseX, mouseY);
+            }
+        } catch (Exception e) {
+            // If everything fails, close this screen and return to vanilla
+            if (this.client != null) {
+                this.client.setScreen(new net.minecraft.client.gui.screen.TitleScreen());
+            }
+        }
     }
 
     private void setupCustomTheme() {
