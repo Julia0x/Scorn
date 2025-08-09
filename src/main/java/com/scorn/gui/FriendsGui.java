@@ -89,9 +89,7 @@ public class FriendsGui extends Screen {
             
             // Elegant header with gradient-like effect
             ImGui.pushStyleColor(ImGuiCol.Text, 0.4f, 0.8f, 1.0f, 1.0f);
-            ImGui.setWindowFontScale(1.3f);
             ImGui.textColored(0.4f, 0.8f, 1.0f, 1.0f, "Manage Your Friends");
-            ImGui.setWindowFontScale(1.0f);
             ImGui.popStyleColor();
             
             ImGui.sameLine();
