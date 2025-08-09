@@ -32,10 +32,21 @@ This is a Minecraft Fabric client mod called "Scorn" with advanced combat system
 - Scrollable friends list
 - Proper error handling and user feedback
 
-### 4. Added Key Binding (MixinKeyboard.java)
-- Added handling for GLFW.GLFW_KEY_APOSTROPHE (') key
-- Opens FriendsGui when pressed (only when no other screen is open)
-- Integrated with existing module key binding system
+### 5. Created Alt Manager (AltManager.java, AltManagerGui.java, MixinGameMenuScreen.java)
+**New Features:**
+- Modern ImGui-based interface with purple/violet theme
+- Add/remove alt accounts (both cracked and premium)
+- Account login functionality with session management
+- Search/filter accounts list
+- Persistent storage (saves to `scorn_alts.txt`)
+- Clear all accounts with confirmation
+- Account type indicators (Cracked/Premium)
+- Integrated into pause menu as "Alt Manager" button
+
+### 6. Enhanced Screen Integration (MixinGameMenuScreen.java)
+- Added Alt Manager button to pause menu
+- Proper screen navigation and integration
+- Registered in client mixins configuration
 
 ## Technical Implementation
 
