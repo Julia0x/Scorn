@@ -72,7 +72,7 @@ public class HumanizationUtils {
     public static int getAttackDelay(HumanizationConfig config) {
         if (!config.enableAttackDelay) return 0;
         
-        int baseDelay = RandomUtil.smartRandom(config.minAttackDelay, config.maxAttackDelay);
+        int baseDelay = (int)RandomUtil.smartRandom(config.minAttackDelay, config.maxAttackDelay);
         
         // Add variation based on consecutive actions
         if (consecutiveActions > 5) {
