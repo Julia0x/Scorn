@@ -38,13 +38,15 @@ This is a Minecraft Fabric client mod called "Scorn" with advanced combat system
 ## Technical Implementation
 
 ### Friends GUI Features:
-- **Modern Design**: Blue-themed ImGui interface with consistent styling
-- **Add Friend**: Input field with validation and duplicate checking
-- **Friends List**: Scrollable list with search functionality
-- **Remove Friends**: Individual remove buttons with confirmation dialog
-- **Clear All**: Bulk clear with confirmation dialog
-- **Search**: Real-time filtering of friends list
-- **Status Messages**: Chat notifications for all actions with new [S] prefix
+- **Premium Design**: Modern dark theme with elegant styling and gradients
+- **Enhanced Layout**: Larger, centered window with proper spacing and padding
+- **Add Friend**: Input validation with beautiful green accent styling
+- **Friends List**: Alternating row colors, enhanced scrollable list with better readability
+- **Remove Friends**: Instant removal (no confirmation) with centered, styled buttons
+- **Clear All**: Bulk clear with stylish confirmation dialog
+- **Search**: Real-time filtering with search icon
+- **Visual Polish**: Custom colors, rounded corners, proper typography, and smooth interactions
+- **Professional Look**: Clean dark theme with cyan/green accents for a modern appearance
 
 ### Key Integration:
 - **Apostrophe Key**: GLFW.GLFW_KEY_APOSTROPHE opens the friends GUI
