@@ -89,9 +89,7 @@ public class AltManagerGui extends Screen {
         if (ImGui.begin("Alt Manager", windowFlags)) {
             // Elegant header
             ImGui.pushStyleColor(ImGuiCol.Text, 0.8f, 0.6f, 1.0f, 1.0f);
-            ImGui.setWindowFontScale(1.3f);
             ImGui.textColored(0.8f, 0.6f, 1.0f, 1.0f, "Account Manager");
-            ImGui.setWindowFontScale(1.0f);
             ImGui.popStyleColor();
             
             ImGui.sameLine();
