@@ -249,58 +249,45 @@ public class FriendsGui extends Screen {
     }
 
     private void renderConfirmationDialogs(FriendsManager friendsManager) {
-        // Clear all confirmation dialog
+        // Clear all confirmation dialog only
         if (showConfirmClear) {
             ImGui.openPopup("Clear All Friends?");
         }
         
         if (ImGui.beginPopupModal("Clear All Friends?", ImGuiWindowFlags.AlwaysAutoResize)) {
-            ImGui.text("Are you sure you want to remove all " + friendsManager.getFriendsCount() + " friends?");
-            ImGui.text("This action cannot be undone!");
+            ImGui.pushStyleColor(ImGuiCol.Text, 1.0f, 0.8f, 0.4f, 1.0f);
+            ImGui.text("⚠ Are you sure you want to remove all " + friendsManager.getFriendsCount() + " friends?");
+            ImGui.popStyleColor();
+            ImGui.textColored(0.9f, 0.5f, 0.5f, 1.0f, "This action cannot be undone!");
+            ImGui.spacing();
             ImGui.spacing();
             
-            if (ImGui.button("Yes, Clear All", 120, 30)) {
+            // Centered buttons
+            float buttonWidth = 120;
+            float spacing = 20;
+            float totalWidth = (buttonWidth * 2) + spacing;
+            ImGui.setCursorPosX((ImGui.getWindowWidth() - totalWidth) / 2);
+            
+            ImGui.pushStyleColor(ImGuiCol.Button, 0.8f, 0.2f, 0.2f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.9f, 0.3f, 0.3f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.ButtonActive, 1.0f, 0.4f, 0.4f, 1.0f);
+            if (ImGui.button("Yes, Clear All", buttonWidth, 35)) {
                 friendsManager.clearFriends();
                 ChatUtils.addMessageToChat(Formatting.RED + "[S] " + Formatting.WHITE + "All friends have been removed!");
                 showConfirmClear = false;
                 ImGui.closeCurrentPopup();
             }
+            ImGui.popStyleColor(3);
             
             ImGui.sameLine();
-            if (ImGui.button("Cancel", 80, 30)) {
+            ImGui.pushStyleColor(ImGuiCol.Button, 0.5f, 0.5f, 0.6f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.6f, 0.6f, 0.7f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.7f, 0.7f, 0.8f, 1.0f);
+            if (ImGui.button("Cancel", buttonWidth, 35)) {
                 showConfirmClear = false;
                 ImGui.closeCurrentPopup();
             }
-            
-            ImGui.endPopup();
-        }
-
-        // Remove single friend confirmation dialog
-        if (showConfirmRemove && friendToRemove != null) {
-            ImGui.openPopup("Remove Friend?");
-        }
-        
-        if (ImGui.beginPopupModal("Remove Friend?", ImGuiWindowFlags.AlwaysAutoResize)) {
-            ImGui.text("Are you sure you want to remove:");
-            ImGui.textColored(1.0f, 0.2f, 0.2f, 1.0f, friendToRemove);
-            ImGui.text("from your friends list?");
-            ImGui.spacing();
-            
-            if (ImGui.button("Yes, Remove", 100, 30)) {
-                friendsManager.removeFriend(friendToRemove);
-                ChatUtils.addMessageToChat(Formatting.RED + "[S] " + Formatting.WHITE + "Successfully removed " + 
-                    Formatting.RED + friendToRemove + Formatting.WHITE + " from your friends list!");
-                friendToRemove = null;
-                showConfirmRemove = false;
-                ImGui.closeCurrentPopup();
-            }
-            
-            ImGui.sameLine();
-            if (ImGui.button("Cancel", 80, 30)) {
-                friendToRemove = null;
-                showConfirmRemove = false;
-                ImGui.closeCurrentPopup();
-            }
+            ImGui.popStyleColor(3);
             
             ImGui.endPopup();
         }
