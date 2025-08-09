@@ -219,6 +219,15 @@ public class CustomTitleScreen extends Screen {
         if (renderAnimatedButton("Quit Game", smallButtonWidth, 35, 0.8f, 0.3f, 0.3f)) {
             mc.scheduleStop();
         }
+        
+        ImGui.spacing();
+        
+        // Back to vanilla button
+        float backButtonWidth = 200;
+        ImGui.setCursorPosX((ImGui.getWindowWidth() - backButtonWidth) / 2);
+        if (renderAnimatedButton("Back to Vanilla Menu", backButtonWidth, 30, 0.4f, 0.4f, 0.5f)) {
+            mc.setScreen(new net.minecraft.client.gui.screen.TitleScreen());
+        }
     }
 
     private boolean renderAnimatedButton(String text, float width, float height, float r, float g, float b) {
