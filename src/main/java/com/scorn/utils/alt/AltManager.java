@@ -62,14 +62,16 @@ public class AltManager {
         try {
             if (alt.getPassword().isEmpty()) {
                 // Cracked account login
-                Session session = new Session(alt.getEmail(), UUID.randomUUID().toString(), "", Session.AccountType.MOJANG);
+                Session session = new Session(alt.getEmail(), UUID.randomUUID(), "", 
+                    Optional.empty(), Optional.empty(), Session.AccountType.MOJANG);
                 setSession(session);
                 ChatUtils.addMessageToChat(Formatting.GREEN + "[S] " + Formatting.WHITE + "Logged in as " + 
                     Formatting.GREEN + alt.getEmail() + Formatting.WHITE + " (Cracked)");
             } else {
                 // For premium accounts, we would need proper authentication
                 // This is a simplified implementation for demonstration
-                Session session = new Session(alt.getEmail(), UUID.randomUUID().toString(), "", Session.AccountType.MOJANG);
+                Session session = new Session(alt.getEmail(), UUID.randomUUID(), "", 
+                    Optional.empty(), Optional.empty(), Session.AccountType.MOJANG);
                 setSession(session);
                 ChatUtils.addMessageToChat(Formatting.GREEN + "[S] " + Formatting.WHITE + "Logged in as " + 
                     Formatting.GREEN + alt.getEmail());
