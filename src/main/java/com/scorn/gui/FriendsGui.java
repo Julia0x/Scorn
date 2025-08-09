@@ -145,7 +145,7 @@ public class FriendsGui extends Screen {
             
             // Search box with better styling
             ImGui.setNextItemWidth(400);
-            ImGui.inputTextWithHint("##Search", "🔍 Search friends...", searchInput, ImGuiInputTextFlags.None);
+            ImGui.inputTextWithHint("##Search", "Search friends...", searchInput, ImGuiInputTextFlags.None);
 
             ImGui.spacing();
 
