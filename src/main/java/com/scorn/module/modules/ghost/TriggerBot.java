@@ -194,7 +194,7 @@ public class TriggerBot extends Module {
         if (burstClicking.getValue() && !inBurstMode && 
             RandomUtil.smartRandom(0.0, 1.0) < burstChance.getValue()) {
             inBurstMode = true;
-            burstHitsLeft = RandomUtil.smartRandom((int)burstHits.getValueMin(), (int)burstHits.getValueMax());
+            burstHitsLeft = (int)RandomUtil.smartRandom((int)burstHits.getValueMin(), (int)burstHits.getValueMax());
             // Faster CPS during burst
             currentMinCPS *= 1.5;
             currentMaxCPS *= 1.5;
