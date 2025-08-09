@@ -85,7 +85,9 @@ This is a Minecraft Fabric client mod called "Scorn" with advanced combat system
 - `MixinKeyboard.java` - Added apostrophe key handling
 - `AltManager.java` - **NEW** Alt accounts management utility
 - `AltManagerGui.java` - **NEW** Alt Manager GUI interface with locked password input (cracked only)
-- `MixinTitleScreen.java` - **NEW** Main menu integration for Alt Manager
+- `CustomTitleScreen.java` - **NEW** Custom animated title screen with particle effects
+- `AnimationUtils.java` - **NEW** Animation utility class for smooth transitions
+- `MixinTitleScreen.java` - **UPDATED** Now replaces vanilla title screen with custom version
 - `client.mixins.json` - Added screen mixin registration
 - `test_result.md` - **UPDATED** Documentation of all changes
 
