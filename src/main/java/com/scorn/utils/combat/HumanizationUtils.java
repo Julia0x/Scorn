@@ -109,7 +109,7 @@ public class HumanizationUtils {
     public static int getReactionTime(HumanizationConfig config) {
         if (!config.enableReactionTime) return 0;
         
-        int reactionTime = RandomUtil.smartRandom(config.minReactionTime, config.maxReactionTime);
+        int reactionTime = (int)RandomUtil.smartRandom(config.minReactionTime, config.maxReactionTime);
         
         // Faster reactions when health is low (adrenaline)
         if (mc.player != null) {
