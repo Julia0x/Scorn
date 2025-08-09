@@ -43,8 +43,8 @@ This is a Minecraft Fabric client mod called "Scorn" with advanced combat system
 - Account type indicators (shows "Cracked" for all accounts)
 - Integrated into main menu (TitleScreen) as "Alt Manager" button
 
-### 6. Enhanced Screen Integration (MixinGameMenuScreen.java)
-- Added Alt Manager button to pause menu
+### 6. Enhanced Screen Integration (MixinTitleScreen.java)
+- Added Alt Manager button to main menu
 - Proper screen navigation and integration
 - Registered in client mixins configuration
 
