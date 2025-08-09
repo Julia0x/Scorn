@@ -123,7 +123,7 @@ public class AimAssist extends Module {
             // Set reaction time for new target
             if (reactionTime.getValue() && humanization.getValue()) {
                 nextActionTime = System.currentTimeMillis() + 
-                    RandomUtil.smartRandom((int)reactionDelay.getValueMin(), (int)reactionDelay.getValueMax());
+                    (long)RandomUtil.smartRandom((int)reactionDelay.getValueMin(), (int)reactionDelay.getValueMax());
                 return;
             }
         }
