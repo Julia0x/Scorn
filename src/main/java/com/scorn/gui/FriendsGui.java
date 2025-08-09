@@ -34,30 +34,42 @@ public class FriendsGui extends Screen {
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         ImGuiImpl.render(io -> {
-            // Set dark theme colors for friends GUI
-            ImGui.pushStyleColor(ImGuiCol.TitleBg, 0.1f, 0.1f, 0.8f, 1.0f);
-            ImGui.pushStyleColor(ImGuiCol.TitleBgActive, 0.2f, 0.2f, 1.0f, 1.0f);
-            ImGui.pushStyleColor(ImGuiCol.Header, 0.15f, 0.15f, 0.9f, 0.8f);
-            ImGui.pushStyleColor(ImGuiCol.HeaderHovered, 0.25f, 0.25f, 1.0f, 1.0f);
-            ImGui.pushStyleColor(ImGuiCol.HeaderActive, 0.3f, 0.3f, 1.0f, 1.0f);
-            ImGui.pushStyleColor(ImGuiCol.Button, 0.1f, 0.1f, 0.8f, 0.7f);
-            ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.2f, 0.2f, 1.0f, 0.9f);
-            ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.3f, 0.3f, 1.0f, 1.0f);
-            ImGui.pushStyleColor(ImGuiCol.FrameBg, 0.2f, 0.2f, 0.2f, 0.8f);
-            ImGui.pushStyleColor(ImGuiCol.FrameBgHovered, 0.3f, 0.3f, 0.3f, 0.9f);
-            ImGui.pushStyleColor(ImGuiCol.FrameBgActive, 0.4f, 0.4f, 0.4f, 1.0f);
-
-            // Set consistent styling
-            ImGui.pushStyleVar(ImGuiStyleVar.WindowRounding, 8.0f);
-            ImGui.pushStyleVar(ImGuiStyleVar.FrameRounding, 4.0f);
-            ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 8.0f, 6.0f);
-            ImGui.pushStyleVar(ImGuiStyleVar.WindowPadding, 16.0f, 16.0f);
+            // Set modern dark theme with accent colors
+            ImGui.pushStyleColor(ImGuiCol.TitleBg, 0.12f, 0.12f, 0.15f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.TitleBgActive, 0.15f, 0.15f, 0.18f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.WindowBg, 0.08f, 0.08f, 0.10f, 0.95f);
+            ImGui.pushStyleColor(ImGuiCol.ChildBg, 0.10f, 0.10f, 0.12f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.PopupBg, 0.08f, 0.08f, 0.10f, 0.98f);
+            ImGui.pushStyleColor(ImGuiCol.Border, 0.25f, 0.25f, 0.30f, 0.8f);
+            ImGui.pushStyleColor(ImGuiCol.FrameBg, 0.15f, 0.15f, 0.18f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.FrameBgHovered, 0.18f, 0.18f, 0.22f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.FrameBgActive, 0.20f, 0.20f, 0.25f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.Button, 0.20f, 0.25f, 0.30f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.ButtonHovered, 0.25f, 0.30f, 0.35f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.ButtonActive, 0.30f, 0.35f, 0.40f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.Header, 0.18f, 0.22f, 0.28f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.HeaderHovered, 0.22f, 0.26f, 0.32f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.HeaderActive, 0.26f, 0.30f, 0.36f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.Text, 0.95f, 0.95f, 0.97f, 1.0f);
+            ImGui.pushStyleColor(ImGuiCol.TextDisabled, 0.60f, 0.60f, 0.65f, 1.0f);
+            
+            // Enhanced styling
+            ImGui.pushStyleVar(ImGuiStyleVar.WindowRounding, 12.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.ChildRounding, 8.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.FrameRounding, 6.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.PopupRounding, 8.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.ScrollbarRounding, 6.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.GrabRounding, 6.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 10.0f, 8.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.WindowPadding, 20.0f, 20.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.FramePadding, 8.0f, 6.0f);
+            ImGui.pushStyleVar(ImGuiStyleVar.ItemInnerSpacing, 8.0f, 6.0f);
 
             renderFriendsWindow();
 
             // Pop all style modifications
-            ImGui.popStyleColor(11);
-            ImGui.popStyleVar(4);
+            ImGui.popStyleColor(17);
+            ImGui.popStyleVar(10);
         });
     }
 
