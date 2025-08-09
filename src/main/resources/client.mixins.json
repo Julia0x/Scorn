@@ -46,7 +46,7 @@
     "render.MixinRenderTickCounter",
     "render.MixinScreen",
     "render.MixinWorldRenderer",
-    "screen.MixinGameMenuScreen"
+    "screen.MixinTitleScreen"
   ],
   "injectors": {
     "defaultRequire": 1
