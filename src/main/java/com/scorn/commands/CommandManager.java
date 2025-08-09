@@ -21,7 +21,7 @@ public class CommandManager {
         commands.add(new BindListCommand());
         commands.add(new BindClearCommand());
         commands.add(new CloudConfigCommand());
-        commands.add(new FriendsCommand());
+        // Removed FriendsCommand - friends are now managed via GUI (apostrophe key)
     }
 
     public static String[] removeElement(String[] input, int indexToDelete) {
