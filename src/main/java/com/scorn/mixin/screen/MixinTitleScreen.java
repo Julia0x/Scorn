@@ -1,15 +1,17 @@
 package com.scorn.mixin.screen;
 
-import com.scorn.gui.AltManagerGui;
+import com.scorn.gui.CustomTitleScreen;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+/**
+ * Replaces the vanilla title screen with our custom animated title screen
+ */
 @Mixin(TitleScreen.class)
 public class MixinTitleScreen extends Screen {
 
@@ -17,13 +19,12 @@ public class MixinTitleScreen extends Screen {
         super(title);
     }
 
-    @Inject(method = "initWidgetsNormal", at = @At("TAIL"))
-    private void addAltManagerButton(int y, int spacingY, CallbackInfo ci) {
-        // Add Alt Manager button to the main menu
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Alt Manager"), button -> {
-            if (this.client != null) {
-                this.client.setScreen(new AltManagerGui());
-            }
-        }).dimensions(this.width / 2 - 100, y + spacingY * 2, 200, 20).build());
+    @Inject(method = "init", at = @At("HEAD"), cancellable = true)
+    private void replaceWithCustomTitleScreen(CallbackInfo ci) {
+        // Replace vanilla title screen with our custom one
+        if (this.client != null) {
+            this.client.setScreen(new CustomTitleScreen());
+        }
+        ci.cancel();
     }
 }
