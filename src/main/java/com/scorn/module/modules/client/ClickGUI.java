@@ -8,7 +8,7 @@ import org.lwjgl.glfw.GLFW;
 
 public class ClickGUI extends Module {
     private boolean didInitImgui = false;
-    public static final ModeSetting clickguiMode = new ModeSetting("Mode", "Old", "ImGui", "Old");
+    private static final ModeSetting clickguiMode = new ModeSetting("Mode", "ImGui", "ImGui", "Old");
 
     public ClickGUI() {
         super("ClickGui", "Click Gui", GLFW.GLFW_KEY_RIGHT_SHIFT, ModuleCategory.CLIENT);
